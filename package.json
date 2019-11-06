@@ -1,0 +1,17 @@
+{
+  "name": "snowtooth-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon . -e graphql,js"
+  },
+  "keywords": [],
+  "author": "Moon Highway",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.9.7",
+    "graphql": "^14.5.8",
+    "nodemon": "^1.19.4"
+  }
+}

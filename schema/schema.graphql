@@ -1,0 +1,56 @@
+scalar Date
+
+enum Conditions {
+    POWDER
+    ICE
+    THIN
+    ROCKS
+}
+"""
+Block of comment
+"""
+type SkiDay {
+    "The ID of each unique ski day"
+    id: ID!
+    "The mountain where the ski day occurred"
+    mountain: String!
+    "The Date of the ski day"
+    date: Date!
+    "The conditions ok the ski day"
+    conditions: Conditions!
+}
+
+"Add day input fields include the date, maintain and conditions for each ski day"
+input AddDayInput {
+    "date is optional because we can auto add todays date if no input is provided"
+    date: Date
+    mountain: String!
+    conditions: Conditions!
+}
+
+type Subscription {
+    newDay: SkiDay!
+}
+
+type RemoveDayMutationResponse {
+    "remove boolean shoes if the remove was successful"
+    remove: Boolean!
+    totalBefore: Int
+    totalAfter: Int
+    day: SkiDay
+}
+
+type Mutation {
+    "A mutation intended to add a day to our list of a ski day. metthod(var:Type): what it returns"
+    addDay(
+        "This is the date, "
+        input: AddDayInput!): SkiDay!
+    removeDay(id: ID!): RemoveDayMutationResponse!
+}
+
+type Query {
+    "A query that reports the number of ski days that a person has <- Example of a comment"
+    totalDays: Int
+    allDays: [SkiDay!]!
+}
+
